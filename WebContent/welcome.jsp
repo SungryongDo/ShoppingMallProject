@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=utf-8"%>
+﻿<%@ page contentType="text/html; charset=utf-8"%>
 <%@ page import="java.util.Date"%>
 <html>
 <head>
@@ -22,14 +22,14 @@
 				<%=tagline%>
 			</h3>
 			<%
+				response.setIntHeader("Refresh", 5);
 				Date day = new java.util.Date();
 				String am_pm;
 				int hour = day.getHours();
 				int minute = day.getMinutes();
 				int second = day.getSeconds();
-				if (hour <= 12) {
+				if (hour / 12 == 0) {
 					am_pm = "AM";
-					
 				} else {
 					am_pm = "PM";
 					hour = hour - 12;
